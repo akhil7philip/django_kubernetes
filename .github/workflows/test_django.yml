@@ -12,11 +12,12 @@ jobs:
         working-directory: ./django
     env:
       DJANGO_SECRET_KEY: set_one_better
-      DB_NAME: postgres
+      DB_NAME: dockerdc
       DB_USERNAME: dj_k8_user
       DB_PASSWORD: dj_k8_pass
       DB_HOST: localhost
       DB_PORT: 5432
+      DB_IGNORE_SSL: 0
     services:
       postgres_main: 
         image: postgres:14
