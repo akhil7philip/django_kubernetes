@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 import os
-import dj_database_url
+# import dj_database_url
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -79,14 +79,30 @@ WSGI_APPLICATION = 'django_k8.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
-    'default': dj_database_url.parse(os.getenv('DATABASE_URL'), conn_max_age=600)
-    }
+# DATABASES = {
+#     'default': dj_database_url.parse(os.getenv('DATABASE_URL'), conn_max_age=600)
+#     }
 
 # if os.getenv('PROD_DATABASE_FLAG') == 1:
 #     DATABASES = {
 #         'default': dj_database_url.parse(os.getenv('PROD_DATABASE_URL'), conn_max_age=600)
 #         }
+
+
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": os.environ.get("DB_NAME",'postgres'),
+        "USER": os.environ.get("DB_USER",'postgres'),
+        "PASSWORD": os.environ.get("DB_PASSWORD",''),
+        "HOST": os.environ.get("DB_HOST",'localhost'),
+        "PORT": os.environ.get("DB_PORT",'5432'),
+    }
+}
+
+if os.environ.get("DB_SSL_REQUIRE") == 1:
+    DATABASES["default"]["OPTIONS"] = {"sslmode": "require"}
+
 
 
 # Password validation

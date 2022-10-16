@@ -12,12 +12,18 @@ jobs:
         working-directory: ./django
     env:
       DJANGO_SECRET_KEY: set_one_better
-      DATABASE_URL: postgres://postgres@localhost:5432/postgres
+      DB_NAME: postgres
+      DB_USERNAME: dj_k8_user
+      DB_PASSWORD: dj_k8_pass
+      DB_HOST: localhost
+      DB_PORT: 5432
     services:
       postgres_main: 
         image: postgres:14
         env:
-          DATABASE_URL: ${{ env.DATABASE_URL }}
+          DB_NAME: ${{ env.DB_NAME }}
+          DB_USERNAME: ${{ env.DB_USERNAME }}
+          DB_PASSWORD: ${{ env.DB_PASSWORD }}
         ports:
           - 5432:5432
         options: >-
