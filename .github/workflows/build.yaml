@@ -34,4 +34,4 @@ jobs:
         -f Dockerfile .
     - name: push image
       run: |
-      docker push registry.digitalocean.com/aks-dj-k8s/django_kubernetes --all-tags
+        docker push registry.digitalocean.com/aks-dj-k8s/django_kubernetes --all-tags
