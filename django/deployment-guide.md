@@ -24,7 +24,7 @@ docker push registry.digitalocean.com/aks-dj-k8s/django_kubernetes --all-tags
 4. Update secrets
 ```
 k delete secret django-k8s-prod-env
-k create secret generic django-k8s-prod-env --from-env-file=django/.env.prod
+k create secret generic django-k8s-prod-env --from-env-file=.env.prod
 ```
 
 5. Update deployment
