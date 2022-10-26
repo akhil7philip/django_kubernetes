@@ -15,4 +15,4 @@ WORKDIR /app
 # permit execution of entrypoint.sh file
 RUN chmod +x entrypoint.sh
 # command to execute
-CMD ["/app/entrypoint.sh"]
+CMD ["/bin/bash","/app/entrypoint.sh"]

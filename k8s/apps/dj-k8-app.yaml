@@ -21,9 +21,9 @@ spec:
             name: django-k8s-prod-env
         env:
         - name: PORT
-          value: '8002'
+          value: '8003'
         ports:
-        - containerPort: 8002
+        - containerPort: 8003
       imagePullSecrets:
         - name: aks-dj-k8s
 
@@ -42,5 +42,5 @@ spec:
   - name: http
     protocol: TCP
     port: 80
-    targetPort: 8002
+    targetPort: 8003
     # nodePort: 31000
