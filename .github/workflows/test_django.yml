@@ -11,16 +11,16 @@ jobs:
       run:
         working-directory: ./django
     env:
-      DJANGO_SECRET_KEY: set-one-better
-      DB_NAME: dockerdc
-      DB_USERNAME: myuser
-      DB_PASSWORD: mysecretpassword
+      DJANGO_SECRET_KEY: later
+      DB_NAME: postgres
+      DB_USERNAME: dj_k8_user
+      DB_PASSWORD: dj_k8_pass
       DB_HOST: localhost
       DB_PORT: 5432
       DB_IGNORE_SSL: 0
     services:
       postgres_main: 
-        image: postgres:13
+        image: postgres:14
         env:
           DB_NAME: ${{ env.DB_NAME }}
           DB_USERNAME: ${{ env.DB_USERNAME }}

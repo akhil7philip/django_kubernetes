@@ -27,6 +27,12 @@ k delete secret django-k8s-prod-env
 k create secret generic django-k8s-prod-env --from-env-file=.env.prod
 ```
 
+4.1. How to get secret for accessing private image
+```
+k get serviceaccount default -o YAML
+```
+and copy `imagePullSecrets` into Deployment manifest file to access private image
+
 5. Update deployment
 ```
 cd ..
