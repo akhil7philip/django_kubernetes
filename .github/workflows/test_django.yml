@@ -19,8 +19,8 @@ jobs:
       DB_PORT: 5432
       DB_IGNORE_SSL: 0
     services:
-      postgres_main: 
-        image: postgres:14
+      postgres_main:
+        image: postgres:13
         env:
           DB_NAME: ${{ env.DB_NAME }}
           DB_USERNAME: ${{ env.DB_USERNAME }}
@@ -28,9 +28,9 @@ jobs:
         ports:
           - 5432:5432
         options: >-
-          --health-cmd pg_isready
-          --health-interval 10s
-          --health-timeout 5s
+          --health-cmd pg_isready 
+          --health-interval 10s 
+          --health-timeout 5s 
           --health-retries 5
     strategy:
       max-parallel: 4
