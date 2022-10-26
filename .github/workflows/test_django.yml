@@ -19,14 +19,10 @@ jobs:
       DB_PORT: 5432
       DB_IGNORE_SSL: 0
     services:
-      postgres_main:
-        image: postgres:13
+      postgres:
+        image: postgres
         env:
-          DB_NAME: ${{ env.DB_NAME }}
-          DB_USERNAME: ${{ env.DB_USERNAME }}
-          DB_PASSWORD: ${{ env.DB_PASSWORD }}
-        ports:
-          - 5432:5432
+          POSTGRES_PASSWORD: postgres
         options: >-
           --health-cmd pg_isready 
           --health-interval 10s 
