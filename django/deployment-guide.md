@@ -38,7 +38,10 @@ and copy `imagePullSecrets` into Deployment manifest file to access private imag
 cd ..
 k apply -f k8s/apps/dj-k8-app.yaml
 ```
-
+force update
+```
+k rollout restart deployment/django-deployment
+```
 6. Wait for rollout to finish
 ```
 k rollout status deployment/django-deployment
