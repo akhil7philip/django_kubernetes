@@ -50,3 +50,8 @@ k exec -it <pod_name> -- bash /app/migrate.sh
 export SINGLE_POD_NAME=$(k get pod -l app=django-deployment -o jsonpath="{.items[0].metadata.name}")
 k exec -it $SINGLE_POD_NAME -- bash /app/migrate.sh 
 ```
+
+8. to run a different image
+```
+k set image deployment/django-deployment django-deployment=registry.digitalocean.com/aks-dj-k8s/django_kubernetes:<image_id>
+```
