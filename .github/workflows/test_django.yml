@@ -12,17 +12,17 @@ jobs:
         working-directory: ./django
     env:
       DJANGO_SECRET_KEY: later
-      POSTGRES_DB: postgres
-      POSTGRES_USER: dj_k8_user
-      POSTGRES_PASSWORD: dj_k8_pass
-      POSTGRES_HOST: localhost
-      POSTGRES_PORT: 5432
+      DB_NAME: postgres
+      DB_USERNAME: postgres
+      DB_PASSWORD: postgres
+      DB_HOST: localhost
+      DB_PORT: 5432
       DB_IGNORE_SSL: 0
     services:
       postgres:
         image: postgres
         env:
-          POSTGRES_PASSWORD: ${{ env.POSTGRES_PASSWORD }}
+          POSTGRES_PASSWORD: postgres
         options: >-
           --health-cmd pg_isready 
           --health-interval 10s 
