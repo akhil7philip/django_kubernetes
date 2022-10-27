@@ -16,6 +16,7 @@ jobs:
     needs: [test_djagno_job]
     env:
       DJANGO_SECRET_KEY: set_one_better
+      CLUSTER_NAME: dj-k8-cluster
     steps:
     - name: checkout code
       uses: actions/checkout@v2
