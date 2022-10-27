@@ -102,7 +102,7 @@ DATABASES = {
     }
 }
 
-if os.environ.get("DB_SSL_REQUIRE") == 1:
+if os.environ.get("DB_SSL_REQUIRE",'0') == 1:
     DATABASES["default"]["OPTIONS"] = {"sslmode": "require"}
 
 
